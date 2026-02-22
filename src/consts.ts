@@ -1,4 +1,4 @@
-export const SITE_URL = 'https://example.com';
+export const SITE_URL = 'https://columbia-yang-he.github.io/Blog';
 export const SITE_TITLE = 'Yang He';
 export const SITE_DESCRIPTION =
 	'Building practical AI tooling, MCP servers, and developer workflows.';
