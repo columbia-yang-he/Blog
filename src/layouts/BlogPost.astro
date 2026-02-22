@@ -21,7 +21,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 		<main>
 			<article class="prose">
 				<header class="title-wrap">
-					<p class="muted"><a href="/posts">Back to all posts</a></p>
+					<p class="muted"><a href={`${import.meta.env.BASE_URL}posts`}>Back to all posts</a></p>
 					<h1>{title}</h1>
 					<p class="muted description">{description}</p>
 					<p class="muted">
