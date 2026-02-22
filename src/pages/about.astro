@@ -1,0 +1,32 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`About | ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main class="prose">
+			<h1>About</h1>
+			<p>
+				I am a developer focused on practical AI integrations, MCP tooling, and production-minded
+				automation.
+			</p>
+			<p>
+				I use this blog to document what works in real projects, from architecture patterns to setup
+				playbooks and lessons learned while shipping tools.
+			</p>
+			<p>
+				If you are building similar systems and want to compare notes, feel free to reach out through
+				any social link in the footer.
+			</p>
+		</main>
+		<Footer />
+	</body>
+</html>

@@ -1,0 +1,94 @@
+---
+import { SITE_TITLE } from '../consts';
+import HeaderLink from './HeaderLink.astro';
+---
+
+<header>
+	<nav class="container">
+		<a class="brand" href="/">{SITE_TITLE}</a>
+		<div class="links">
+			<HeaderLink href="/">Home</HeaderLink>
+			<HeaderLink href="/posts">Posts</HeaderLink>
+			<HeaderLink href="/about">About</HeaderLink>
+			<a href="/rss.xml">RSS</a>
+			<button id="theme-toggle" type="button" aria-label="Toggle theme">Theme</button>
+		</div>
+	</nav>
+</header>
+<script is:inline>
+	const toggle = document.getElementById('theme-toggle');
+	if (toggle) {
+		toggle.addEventListener('click', () => {
+			const root = document.documentElement;
+			root.classList.toggle('dark');
+			localStorage.setItem('theme', root.classList.contains('dark') ? 'dark' : 'light');
+		});
+	}
+</script>
+<style>
+	header {
+		border-bottom: 1px solid var(--border);
+		background: var(--bg);
+		position: sticky;
+		top: 0;
+		z-index: 10;
+		backdrop-filter: blur(6px);
+	}
+
+	.container {
+		width: min(980px, 100% - 2rem);
+		margin: 0 auto;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		min-height: 64px;
+		gap: 1rem;
+	}
+
+	.brand {
+		text-decoration: none;
+		color: var(--text);
+		font-weight: 700;
+		font-size: 1.06rem;
+	}
+
+	.links {
+		display: flex;
+		align-items: center;
+		gap: 0.3rem;
+		flex-wrap: wrap;
+	}
+
+	.links :global(a),
+	.links button {
+		padding: 0.45rem 0.65rem;
+		border-radius: 8px;
+		text-decoration: none;
+		color: var(--muted);
+		border: 1px solid transparent;
+		background: transparent;
+		font-size: 0.9rem;
+		font-family: inherit;
+		cursor: pointer;
+	}
+
+	.links :global(a:hover),
+	.links button:hover {
+		color: var(--text);
+		border-color: var(--border);
+		background: var(--surface);
+	}
+
+	.links :global(a.active) {
+		color: var(--text);
+		border-color: var(--border);
+		background: var(--surface);
+		font-weight: 600;
+	}
+
+	@media (max-width: 640px) {
+		.container {
+			min-height: 58px;
+		}
+	}
+</style>
